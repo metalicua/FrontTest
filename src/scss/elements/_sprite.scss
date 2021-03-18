@@ -3,9 +3,17 @@
 }
 .main-logo {
   height: 45px;
+  width: 115px;
 }
 
 .header-icon {
   width: 24px;
   height: 24px;
+  fill: $color-text-paragraph;
+  transition: $transition-base;
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
 }

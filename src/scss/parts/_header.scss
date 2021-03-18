@@ -1,0 +1,121 @@
+@include responsive($xs) {
+  .header {
+    position: relative;
+    .container {
+      justify-content: space-between;
+      align-self: center;
+    }
+    &__button {
+      display: none;
+    }
+    &__burger {
+      position: relative;
+      width: 35px;
+      height: 15px;
+      display: block;
+      margin-left: 10px;
+      cursor: pointer;
+
+      &::after,
+      &::before {
+        content: "";
+      }
+
+      span,
+      &::after,
+      &::before {
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        background: #515758;
+        margin: 0 auto;
+      }
+
+      span {
+        top: 14px;
+        right: 20%;
+      }
+
+      &::after {
+        top: 0px;
+        right: 20%;
+      }
+
+      &::before {
+        bottom: 5px;
+        right: 20%;
+      }
+
+      &--open {
+        span {
+          opacity: 0;
+          transition: 0.5s;
+        }
+        &:before {
+          transform: rotate(45deg);
+          top: 5px;
+          transition: 0.4s;
+        }
+        &:after {
+          transform: rotate(-45deg);
+          top: 5px;
+          transition: 0.4s;
+        }
+      }
+    }
+  }
+  .icons__link {
+    display: none;
+    font-weight: 700;
+
+    &:hover {
+      color: $color-hover;
+
+      svg {
+        fill: $color-hover;
+      }
+    }
+  }
+}
+
+@include responsive($md) {
+  .header {
+    &__nav,
+    &__btn {
+      margin-right: 10px;
+    }
+    &__burger {
+      display: none;
+    }
+
+    &__button {
+      display: flex;
+    }
+    &__btn {
+      padding: 6px 24px;
+    }
+  }
+}
+@include responsive($xl) {
+  .header {
+    &__nav,
+    &__btn,
+    .icons__link {
+      margin-right: 15px;
+      transition: $transition-base;
+    }
+  }
+  .icons__link {
+    display: flex;
+  }
+}
+
+@include responsive($lg) {
+  .header {
+    &__nav,
+    &__btn,
+    .icons__link {
+      margin-right: 30px;
+    }
+  }
+}

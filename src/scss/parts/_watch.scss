@@ -1,0 +1,108 @@
+// .watch {
+//   background: url("../img/section-bg.png") 0 75% no-repeat;
+//   &__wrap {
+//     background: url("../img/dots.png") 0 55% no-repeat;
+//   }
+//   .container {
+//     padding: 40px 0 125px;
+//     display: flex;
+//     align-items: center;
+//   }
+//   &__image {
+//     position: relative;
+//     padding: 0 225px 0 20px;
+//   }
+//   &__title {
+//     padding-bottom: 20px;
+//   }
+//   &__text {
+//     padding-bottom: 20px;
+//     p {
+//       line-height: 27px;
+//     }
+//   }
+// }
+@include responsive($xs) {
+  .watch {
+    background: url("../img/section-bg.png") 40% 70% no-repeat;
+    background-size: 90%;
+    &__wrap {
+      background: url("../img/dots.png") 10% 67% no-repeat;
+      background-size: 60%;
+    }
+    &__title {
+      padding-bottom: 20px;
+    }
+    &__text {
+      padding-bottom: 20px;
+      p {
+        font-size: $font-size-paragraph-sm;
+        line-height: 24px;
+      }
+    }
+    &__btn {
+      width: 180px;
+      text-align: center;
+    }
+    &__link {
+      display: block;
+    }
+
+    &__image {
+      position: relative;
+      padding-bottom: 190px;
+    }
+  }
+}
+
+@include responsive($md) {
+  .watch {
+    background-size: 70%;
+    background-position: -60% 72%;
+
+    &__wrap {
+      background-size: 32%;
+      background-position: 3% 63%;
+    }
+    &__image {
+      padding-bottom: 85px;
+      img {
+        margin-left: -135px;
+      }
+    }
+  }
+}
+@include responsive($xl) {
+  .watch {
+    background-size: 50%;
+    background-position: -15% 72%;
+    &__image {
+      padding-bottom: 30px;
+    }
+  }
+}
+
+@include responsive($lg) {
+  .watch {
+    background-size: 20%;
+    background-position: 22% 5%;
+
+    &__wrap {
+      background-size: 18%;
+      background-position: 14% 42%;
+    }
+
+    .container {
+      padding-bottom: 125px;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+    &__image {
+      width: 50%;
+    }
+    &__content {
+      width: 50%;
+    }
+  }
+}

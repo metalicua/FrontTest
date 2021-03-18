@@ -1,0 +1,98 @@
+@include responsive($xs) {
+  .promo {
+    background: url(../img/section-bg.png) 10% 93% no-repeat;
+    background-size: 80%;
+    &__wrap {
+      background: url(../img/dots.png) 20% 74% no-repeat;
+      background-size: 55%;
+    }
+    .container {
+      padding: 50px 0;
+      display: block;
+    }
+    &__title {
+      padding-bottom: 20px;
+    }
+    &__text {
+      padding-bottom: 30px;
+    }
+    &__btn {
+      padding-bottom: 40px;
+    }
+    &__link {
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+@include responsive($sm) {
+  .promo {
+    background-size: 80%;
+    background-position: 25% 95%;
+
+    &__wrap {
+      background-size: 65%;
+      background-position: 15% 65%;
+    }
+    &__link {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+}
+@include responsive($md) {
+  .promo {
+    background-size: 50%;
+    background-position: 72% 90%;
+
+    &__wrap {
+      background-size: 40%;
+      background-position: 55% 65%;
+    }
+    &__btn {
+      width: 280px;
+    }
+
+    &__link {
+      width: 100%;
+    }
+
+    &__image {
+      width: 66%;
+      margin-left: auto;
+    }
+  }
+}
+
+@include responsive($xl) {
+  .promo {
+    background-size: 45%;
+    background-position: 85% 50%;
+
+    &__wrap {
+      background-size: 30%;
+      background-position: 70% 35%;
+    }
+    .container {
+      padding: 105px 0;
+      display: flex;
+      align-items: center;
+    }
+    &__image {
+      width: 100%;
+    }
+  }
+}
+@include responsive($lg) {
+  .promo {
+    background-size: 30%;
+    background-position: 70% 50%;
+
+    &__wrap {
+      background-size: 20%;
+      background-position: 65% 28%;
+    }
+  }
+}

@@ -5,3 +5,33 @@ $sm: 576px;
 $md: 768px;
 $xl: 992px;
 $lg: 1200px;
+
+// Fonts
+
+$font-default: "Open Sans", sans-serif;
+$font-for-title: "Epilogue", sans-serif;
+
+// Font-size
+
+$font-size-header: 15px;
+$font-size-h1: 42px;
+$font-size-h2: 32px;
+$font-size-h3: 22px;
+$font-size-h4: 22px;
+$font-size-paragraph: 18px;
+$font-size-paragraph-sm: 16px;
+$font-size-button: 20px;
+$font-size-button-sm: 16px;
+
+// Colors
+
+$color-text-paragraph: #63718e;
+$color-hover: #c774ee;
+$color-primary: #c774ee;
+$color-base: #fff;
+$colot-fot-title: #111563;
+$color-additional-first: #fee5ff;
+
+// Animation
+
+$transition-base: 0.3s all;

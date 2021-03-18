@@ -1,0 +1,59 @@
+@include responsive($xs) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 25%;
+    right: 10%;
+
+    &__list {
+      display: block;
+    }
+  }
+}
+
+@include responsive($sm) {
+  .nav {
+    position: absolute;
+    top: 25%;
+    right: 10%;
+
+    &__list {
+      display: block;
+    }
+  }
+}
+
+@include responsive($md) {
+  .nav {
+    display: block;
+    position: static;
+
+    &__list {
+      display: flex;
+    }
+    &__link {
+      margin-right: 10px;
+      font-size: $font-size-header;
+      color: $color-text-paragraph;
+      transition: $transition-base;
+
+      &:hover {
+        color: $color-hover;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.nav {
+  &__list {
+    list-style: none;
+  }
+
+  &__link {
+    margin-right: 15px;
+  }
+}

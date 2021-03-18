@@ -36,6 +36,7 @@ gulp.task('font', function(){
 });
 
 // css
+
 gulp.task('css', function(){
     return gulp.src('src/scss/**/*.scss')
         .pipe(sourcemaps.init())
@@ -50,23 +51,6 @@ gulp.task('css', function(){
         .pipe(gulp.dest('build/css'))
         .pipe(browserSync.stream());
 });
-
-// Slick slider
-
-// gulp.task('slick', function(){
-//     return gulp.src(['node_modules/slick-slider/slick/slick.js'])
-//         .pipe(concat('common.js'))
-//         .pipe(uglify())
-//         .pipe(sourcemaps.write())
-//         .pipe(gulp.dest('build/js'))
-//         .pipe(browserSync.stream());
-// });
-// gulp.task('slick-fonts', function(){
-//     return gulp.src(['node_modules/slick-slider/slick/fonts/*.*'])
-//         .pipe(gulp.dest('build/css'))
-//         .pipe(browserSync.stream());
-    
-// });
 
 // JS
 

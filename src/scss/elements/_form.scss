@@ -1,0 +1,266 @@
+@include responsive($xs) {
+  .form {
+    width: 100%;
+    margin: 0 auto;
+
+    &__box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &__input {
+      position: relative;
+      margin-bottom: 15px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      background-color: $color-additional-second;
+      box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+      border-radius: 10px;
+      transition: 0.5s;
+      text-align: center;
+      cursor: pointer;
+
+      .input-box {
+        padding: 12px 14px 11px 20px;
+        display: flex;
+        background-color: $color-base;
+      }
+
+      input {
+        width: 33%;
+
+        border: 1px solid transparent;
+        background: transparent;
+        color: #3a3a3a;
+        &:focus {
+          outline: none;
+          border: 1px solid $color-primary !important;
+        }
+      }
+
+      .plus,
+      .minus {
+        width: 33%;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .calendar-date {
+        margin-left: 10px;
+        display: inline-block;
+      }
+    }
+
+    .price {
+      background-color: $color-base;
+      box-shadow: none;
+    }
+
+    .data {
+      display: inline-block;
+      padding: 12px 14px 11px 20px;
+      z-index: 99;
+    }
+
+    #calendar {
+      display: none;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 50px;
+    }
+
+    h3 {
+      color: $color-primary;
+    }
+    &__btn {
+      background-color: $color-primary;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        border: 1px solid $color-primary;
+      }
+    }
+  }
+
+  .select {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+    &[data-state="active"] {
+      .select__title {
+        border: 1px solid $color-primary;
+        &::before {
+          transform: translate(-3px, -50%) rotate(-45deg);
+        }
+
+        &::after {
+          transform: translate(3px, -50%) rotate(45deg);
+        }
+      }
+
+      .select__content {
+        opacity: 1;
+      }
+    }
+    :hover {
+      box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.05);
+    }
+    &__title {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 34px);
+      padding: 13px 14px 12px 20px;
+      color: #3a3a3a;
+      background-color: $color-additional-second;
+      box-shadow: 0px 1px 3px rgba(5, 41, 83, 0.14);
+      border-radius: 10px;
+      cursor: pointer;
+
+      &::before,
+      &::after {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        display: block;
+        width: 10px;
+        height: 2px;
+
+        transition: $transition-base;
+
+        background-color: #252525;
+
+        transform: translate(-3px, -50%) rotate(45deg);
+      }
+      &::after {
+        transform: translate(3px, -50%) rotate(-45deg);
+      }
+    }
+
+    &__content {
+      position: absolute;
+      top: 50px;
+      left: 3px;
+      padding: 16px 24px;
+      display: none;
+      flex-direction: column;
+      width: calc(100% - 48px);
+
+      background-color: $color-base;
+
+      border-top: none;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+
+      transition: all 0.3s ease-out;
+      background-color: #f9fafc;
+      opacity: 0;
+      z-index: 8;
+      box-shadow: (4px 6px 10px rgba(0, 0, 0, 0.05));
+    }
+
+    &__input {
+      display: none;
+
+      &:checked + label {
+        background-color: transparent;
+      }
+      &:disabled + label {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+    }
+
+    &__label {
+      display: flex;
+      align-items: center;
+      padding: 10px 8px 7px;
+      color: $color-base-dark;
+      transition: $transition-base;
+      border-radius: 6px;
+      cursor: pointer;
+
+      overflow: hidden;
+
+      &:hover {
+        background-color: $color-additional-first !important;
+
+        color: $color-primary;
+      }
+    }
+  }
+
+  .select-big {
+    width: 100%;
+  }
+  .df {
+    display: flex;
+  }
+}
+
+@include responsive($sm) {
+  .form {
+    width: 75%;
+  }
+}
+
+@include responsive($md) {
+  .form {
+    width: 80%;
+
+    &__input,
+    .select,
+    .select-big {
+      width: calc(50% - 10px);
+    }
+  }
+}
+
+@include responsive($xl) {
+  .form {
+    width: 83%;
+
+    &__input,
+    .select,
+    .select-big {
+      width: calc(33% - 10px);
+    }
+  }
+}
+
+@include responsive($lg) {
+  .form {
+    display: flex;
+    &__box {
+    }
+
+    &__input,
+    .select {
+      margin: 0 10px 30px;
+      width: calc(25% - 20px);
+    }
+
+    .select-big {
+      width: calc(50% - 20px);
+    }
+
+    .left {
+      margin-left: -20px;
+      width: 80%;
+    }
+    .right {
+      margin-right: -20px;
+      width: 20%;
+
+      .form__input {
+        width: 100%;
+      }
+    }
+  }
+}

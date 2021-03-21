@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&family=Epilogue:wght@700&" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion.calendar/2.0.0/css/ion.calendar.min.css"/>
     <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion.calendar/2.0.0/js/ion.calendar.min.js"></script> 
     <script src="js/script.js"></script>
     <title>Front Test</title>
 </head>
@@ -27,6 +31,9 @@
         <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" id="card-icon">
           <circle cx="30" cy="30" r="30" fill="#FEE5FF"></circle>
           <path d="M42 21.14A3.14 3.14 0 0038.86 18H21.14A3.14 3.14 0 0018 21.14v17.72A3.14 3.14 0 0021.14 42h17.72A3.14 3.14 0 0042 38.86V21.14zM23.387 37.598a.7.7 0 01-.856-.857l.862-3.214 3.208 3.208-3.214.863zm13.855-11.69l-9.495 9.496-3.193-3.194 9.495-9.495c.45-.45 1.18-.45 1.63 0l1.563 1.563c.45.45.45 1.18 0 1.63z" fill="#C774EE"></path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" id="calendar-ico">
+          <path d="M10.083 1.333H8.917V.75a.583.583 0 00-1.167 0v.583h-3.5V.75a.583.583 0 00-1.167 0v.583H1.917a1.75 1.75 0 00-1.75 1.75v7a1.75 1.75 0 001.75 1.75h8.166a1.75 1.75 0 001.75-1.75v-7a1.75 1.75 0 00-1.75-1.75zm.584 8.75a.583.583 0 01-.584.584H1.917a.583.583 0 01-.584-.584V6h9.334v4.083zm0-5.25H1.333v-1.75a.583.583 0 01.584-.583h1.166v.583a.583.583 0 101.167 0V2.5h3.5v.583a.583.583 0 101.167 0V2.5h1.166a.583.583 0 01.584.583v1.75z" fill="#111563"></path>
         </symbol>
     </svg>
     <header class="header">
@@ -141,25 +148,90 @@
         </div>
         <div class="calc__form">
           <form action="" class="form">
-            <select name="colors" id="colors">
-              <option value="">Colors:</option>
-              <option value="1" >red</option>
-              <option value="2">green</option>
-              <option value="3">blue</option>
-              <option value="4">orange</option>
-            </select>
-            <select name="size" id="size">
-              <option value="">Size</option>
-              <option value="1" >100%</option>
-              <option value="2">150%</option>
-              <option value="3">200%</option>
-            </select>
-            <select class="select" name="language">
-              <option >Выбрать</option>
-              <option value="HTML">HTML</option>
-              <option value="JavaScript">JavaScript</option>
-              <option value="PHP">PHP</option>
-          </select>
+            <div class="form__box left">
+              <div class="form__select select" data-state="" data-id='1'>
+                <div class="select__title" data-default="Option 0" data-id='1' id='color'>Colors</div>
+                <div class="select__content">
+                  <input id="singleSelect0" class="select__input" type="radio" name="singleSelect"/>
+                  <label for="singleSelect0" class="select__label">red</label>
+                  <input id="singleSelect1" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect1" class="select__label">green</label>
+                  <input id="singleSelect3" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect3" class="select__label">blue</label>
+                  <input id="singleSelect4" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect4" class="select__label">orange</label>
+                </div>
+              </div>
+              <div class="form__select select" data-state="" data-id='2'>
+                <div class="select__title" data-default="Option 0" data-id='2' id="size">Size</div>
+                <div class="select__content">
+                  <input id="singleSelect0" class="select__input" type="radio" name="singleSelect"/>
+                  <label for="singleSelect0" class="select__label">100%</label>
+                  <input id="singleSelect1" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect1" class="select__label">150%</label>
+                  <input id="singleSelect3" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect3" class="select__label">200%</label>
+                </div>
+              </div>
+              <div class="form__input">
+                <div class="input-box ">
+                  <span class="minus">-</span>
+                  <input id='inputNumber' type="text" value="100" placeholder=""/>
+                  <span class="plus">+</span>
+                </div>
+                
+              </div>
+              <div class="form__input">
+                <div class="data__wrap data">
+                  <span class="calendar-icon">
+                    <svg class="data-icon">
+                      <use xlink:href="#calendar-ico"></use>
+                    </svg>
+                  </span>
+                  <span class="calendar-date" id="data">
+                   18.02.2021
+                  </span>
+                  <div id="calendar"></div>
+                </div>
+               
+              </div>
+             
+
+              <div class="form__select select select-big" data-state="" data-id='3'>
+                <div class="select__title" data-default="Option 0" data-id='3' id='city'>City</div>
+                <div class="select__content">
+                  <input id="singleSelect0" class="select__input" type="radio" name="singleSelect"/>
+                  <label for="singleSelect0" class="select__label">Kyiv</label>
+                  <input id="singleSelect1" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect1" class="select__label">Odessa</label>
+                  <input id="singleSelect3" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect3" class="select__label">Rivne</label>
+                  <input id="singleSelect4" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect4" class="select__label">Lviv</label>
+                </div>
+              </div>
+              <div class="form__select select select-big" data-state="" data-id='4'>
+                <div class="select__title" data-default="Option 0" data-id='4' id='delivery'>Delivery</div>
+                <div class="select__content">
+                  <input id="singleSelect0" class="select__input" type="radio" name="singleSelect"/>
+                  <label for="singleSelect0" class="select__label">New Post</label>
+                  <input id="singleSelect1" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect1" class="select__label">Ukrposhta</label>
+                  <input id="singleSelect3" class="select__input" type="radio" name="singleSelect" />
+                  <label for="singleSelect3" class="select__label">Pickup</label>
+                </div>
+              </div>
+             
+            </div>
+            <div class="form__box right">
+              <div class="form__input price">
+                <div class="input-box">
+                  <h3>$ 56.25</h3>
+                </div>
+               
+              </div>
+              <button type="submit" class="form__input form__btn primary btn" id="form-btn">Proceed</button>
+            </div>
           </form>
         </div>
       </div>

@@ -29,9 +29,11 @@ $color-text-paragraph: #63718e;
 $color-hover: #c774ee;
 $color-primary: #c774ee;
 $color-base: #fff;
+$color-base-dark: #111;
 $colot-fot-title: #111563;
 $color-additional-first: #fee5ff;
+$color-additional-second: #f9fafc;
 
 // Animation
 
-$transition-base: 0.3s all;
+$transition-base: all 0.3s ease-out;

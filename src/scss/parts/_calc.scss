@@ -1,0 +1,37 @@
+@include responsive($xs) {
+  .calc {
+    box-shadow: 0px 0px 75px rgba(91, 167, 202, 0.15);
+    .container {
+      padding: 25px 0;
+    }
+    &__title {
+      padding-bottom: 15px;
+      text-align: center;
+    }
+
+    &__text {
+      padding-bottom: 25px;
+      text-align: center;
+    }
+  }
+}
+
+@include responsive($md) {
+  .calc {
+    .container {
+      padding: 50px 0 30px;
+    }
+  }
+}
+
+@include responsive($xl) {
+  .calc {
+    box-shadow: none;
+    .container {
+      padding-top: 60px;
+      margin-bottom: 50px;
+      box-shadow: 0px 2px 16px rgba(32, 108, 164, 0.16);
+      border-radius: 8px;
+    }
+  }
+}

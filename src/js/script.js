@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", function(){
         minus = document.querySelector('.minus'),
         selectTitle = document.querySelectorAll('.select__title'),
         obj = {},
-        formBtn = document.getElementById('form-btn');
-      
-
-    
+        formBtn = document.getElementById('form-btn'),
+        stepsDots = document.querySelectorAll('.dot'),
+        slideCategory= document.querySelectorAll('.s-slider__category');
+       
     // burger & mobile navigation
 
     burger.addEventListener('click', function(){
@@ -41,8 +41,6 @@ document.addEventListener("DOMContentLoaded", function(){
           ], {
             duration: 1000,
           })
-        
-    
     });
 
     // selects
@@ -93,8 +91,6 @@ document.addEventListener("DOMContentLoaded", function(){
         selectContentAll.forEach(element => {element.classList.remove('df') });
     }
         
-    clickToSelect();
-
     // Input change value
 
     function plusValue (){
@@ -112,8 +108,7 @@ document.addEventListener("DOMContentLoaded", function(){
         })
     }
 
-    plusValue ();
-    minusValue ();
+
 
     function getColor(){
         if (color.textContent == 'Colors'){
@@ -154,7 +149,6 @@ document.addEventListener("DOMContentLoaded", function(){
         return obj = {};
     }
   
-
     formBtn.addEventListener('click', function(e){
         e.preventDefault();
         getColor();
@@ -168,6 +162,84 @@ document.addEventListener("DOMContentLoaded", function(){
         reset()
     })
 
+    // Steps Slider 
+    
+    function stepAnimation(){
+        stepsDots.forEach(el =>{
+            let  currentStep = el.getAttribute('data-step'),
+                 currentLine = document.getElementById(`step-${currentStep}`),
+                 allLine = document.querySelectorAll('.steps__line--active'),
+                 stepsName = document.querySelectorAll('.steps__name');
+    
+            el.addEventListener('click', function(){
+    
+                if (this.classList.contains('dot--active') == false){
+    
+                    for (i = 0; i < currentStep; i++){
+                       stepsDots[i].classList.add('dot--active'); 
+                       stepsName[i].classList.add('steps__name--active');
+                    }
+                    for (i = 0; i <currentStep - 1; i++) {
+                        if (allLine[i].offsetWidth == '0'){
+                            allLine[i].animate([
+                                {width: '0'},
+                                {width: '100%'}
+                            ],
+                            {
+                                duration: 700,
+                              })
+                          
+                            setTimeout(function(){
+                                for (i = 0; i <currentStep - 1; i++) {
+                                    allLine[i].style.width = '100%';
+                                }
+                            }, 600); 
+                        }
+                        currentLine.animate([
+                            {width: '0'},
+                            {width: '100%'}
+                        ],
+                        {
+                            duration: 700,
+                          })
+                          setTimeout(function(){
+                            currentLine.style.width = '100%';
+                        }, 600);
+                       
+                    }                
+                    return;
+                }
+    
+                for (i=currentStep - 1; i<allLine.length; i++){
+                    allLine[i].style.width = '0';
+                }
+                for (i=currentStep; i<stepsDots.length; i++){
+                    stepsDots[i].classList.remove('dot--active');
+                    stepsName[i].classList.remove('steps__name--active');
+                }   
+            })
+        })
+    };
+
+    function deActiovation(){
+        slideCategory.forEach(el => {el.classList.remove('s-slider__category--active');})
+    }
+
+    slideCategory.forEach(el => {
+        
+
+        el.addEventListener('click', function(){
+            deActiovation()
+            this.classList.add('s-slider__category--active');
+        })
+    });
+
+
+    clickToSelect();
+    plusValue ();
+    minusValue ();
+    stepAnimation();
+  
     // jQuery calendar
 
     $('.data').on('click', function(){

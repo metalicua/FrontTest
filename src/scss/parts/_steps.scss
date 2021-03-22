@@ -1,0 +1,82 @@
+.steps {
+  .container {
+    padding: 80px 0 50px;
+  }
+
+  &__title {
+    padding-bottom: 15px;
+    text-align: center;
+  }
+
+  &__discription {
+    padding-bottom: 25px;
+  }
+  &__box {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+
+  &__line {
+    position: relative;
+    width: calc(100% - 200px);
+    height: 2px;
+    background-color: $color-blue-light;
+
+    &--active {
+      position: absolute;
+      height: 100%;
+      width: 0;
+      background-color: $color-primary;
+    }
+  }
+
+  &__dots {
+    .dot {
+      margin: 0 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      font-family: $colot-fot-title;
+      font-size: 24px;
+      font-weight: 700;
+      color: $color-blue-dark;
+      background-color: $color-blue-light;
+      border-radius: 20px;
+      transition: $transition-base;
+      cursor: pointer;
+
+      &--active {
+        color: $color-primary;
+        background-color: $color-additional-first;
+      }
+
+      &:hover {
+        color: $color-primary;
+        background-color: $color-additional-first;
+      }
+    }
+    .always-active {
+      color: $color-primary;
+      background-color: $color-additional-first;
+    }
+  }
+  &__name {
+    padding-top: 10px;
+    color: $color-blue-dark;
+
+    &--active {
+      color: $color-primary;
+    }
+  }
+  .isActive {
+    color: $color-primary;
+  }
+  &__slider {
+    padding-top: 60px;
+  }
+}

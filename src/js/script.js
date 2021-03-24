@@ -10,11 +10,14 @@ document.addEventListener("DOMContentLoaded", function(){
         city = document.getElementById('city'),
         delivery = document.getElementById('delivery'),
         minus = document.querySelector('.minus'),
+        mark = document.querySelectorAll('.change-value'),
         selectTitle = document.querySelectorAll('.select__title'),
         obj = {},
         formBtn = document.getElementById('form-btn'),
         stepsDots = document.querySelectorAll('.dot'),
-        slideCategory= document.querySelectorAll('.s-slider__category');
+        slide = document.querySelectorAll('.s-slider__item'),
+        slideCategory= document.querySelectorAll('.s-slider__category'),
+        categoryBox = document.querySelectorAll('.category__box');
        
     // burger & mobile navigation
 
@@ -71,72 +74,49 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function clickToSelect() {
-     
         selects.forEach(el => {
-            let dataId = el.getAttribute('data-id');
+            let dataId = el.getAttribute('data-id'),
+
+                selectContent = el.querySelector('.select__content');
 
             el.addEventListener('click', function(e){
                 let targetId = e.target.getAttribute('data-id');
 
-                if (dataId == targetId) {
+                if ((dataId == targetId) && (selectContent.classList.contains('df') == false)) {
                     dropDown (el);
                     return;
+                } else if (selectContent.classList.contains('df') == true){
+                    el.setAttribute('data-state', '');
+                    selectContent.classList.remove('df');
                 }
             })
         })
+        changeValue()
     }
 
     function clear() {
         selects.forEach(element =>{element.setAttribute('data-state', '');});
-        selectContentAll.forEach(element => {element.classList.remove('df') });
+        selectContentAll.forEach(element => {
+            element.classList.remove('df');
+            element.setAttribute('data-state', '');
+        });
     }
         
     // Input change value
 
-    function plusValue (){
-        plus.addEventListener('click', function() {
-            currentValue = Number.parseInt(input.value) || 100;
-                input.value = currentValue + 1;
-                return input.value;
-        })
-    }
-    function minusValue (){
-        minus.addEventListener('click', function() {
-            currentValue = Number.parseInt(input.value) || 100;
+    function changeValue(){
+       
+        mark.forEach(el =>{
+            el.addEventListener('click', function(){
+                currentValue = Number.parseInt(input.value) || 100;
+                if(el.classList.contains('plus') == true ){
+                    input.value = currentValue + 1;
+                   return input.value;
+                } 
                 input.value = currentValue - 1;
-                return input.value;
+            })
         })
-    }
-
-
-
-    function getColor(){
-        if (color.textContent == 'Colors'){
-            console.log(`Select ${color.textContent}`); 
-            return;
-        }
-        return obj.color = color.textContent 
-    }
-    function getSize(){
-        if (size.textContent == 'Size'){
-            console.log(`Select ${size.textContent}`); 
-            return;
-        }
-        return obj.size = Number.parseInt(size.textContent);
-    }
-    function getCity(){
-        if (city.textContent == 'City'){
-            console.log(`Select ${city.textContent}`); 
-            return;
-        }
-        return obj.city = city.textContent;
-    }
-    function getDelivery(){
-        if (delivery.textContent == 'Delivery'){
-            console.log(`Select ${delivery.textContent}`); 
-            return;
-        }
-        return obj.delivery = delivery.textContent;
+        closeCalendar()
     }
   
     function reset(){
@@ -149,22 +129,44 @@ document.addEventListener("DOMContentLoaded", function(){
         return obj = {};
     }
   
-    formBtn.addEventListener('click', function(e){
-        e.preventDefault();
-        getColor();
-        getSize();
-        getCity();
-        getDelivery();
+    function getObject(){
+        formBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            clear()
+            closeCalendar()
+            if (color.textContent == 'Colors'){
+                console.log(`Select ${color.textContent}`); 
+                return;
+            } 
+            obj.color = color.textContent
+            if (size.textContent == 'Size'){
+                console.log(`Select ${size.textContent}`); 
+                return;
+            }
+             obj.size = Number.parseInt(size.textContent);
+            
+            if (city.textContent == 'City'){
+                console.log(`Select ${city.textContent}`); 
+                return;
+            }
+            obj.city = city.textContent;
+            if (delivery.textContent == 'Delivery'){
+                console.log(`Select ${delivery.textContent}`); 
+                return;
+            }
+            obj.delivery = delivery.textContent;
 
-        obj.numb = Number.parseInt(input.value);
-        obj.data = data.textContent;
-        console.log(obj)
-        reset()
-    })
-
+            obj.numb = Number.parseInt(input.value);
+            obj.data = data.textContent;
+            console.log(obj)
+            reset()
+           
+        })
+    }
+    
     // Steps Slider 
     
-    function stepAnimation(){
+    function  stepAnimation(){
         stepsDots.forEach(el =>{
             let  currentStep = el.getAttribute('data-step'),
                  currentLine = document.getElementById(`step-${currentStep}`),
@@ -174,11 +176,25 @@ document.addEventListener("DOMContentLoaded", function(){
             el.addEventListener('click', function(){
     
                 if (this.classList.contains('dot--active') == false){
-    
+                    
+                 
+                    slide.forEach(e => {
+                        e.classList.remove('db')
+                        e.classList.remove('slide-left')
+                        e.classList.remove('slideDisabled')
+
+                        if(e.classList.contains(`step-${currentStep}`) == true){
+                            e.classList.add('slide-right')
+                            e.classList.add('db')
+                            e.classList.add('slideDisabled')
+                        }
+                    }) 
+
                     for (i = 0; i < currentStep; i++){
                        stepsDots[i].classList.add('dot--active'); 
-                       stepsName[i].classList.add('steps__name--active');
+                       stepsName[i].classList.add('steps__name--active');                    
                     }
+                   
                     for (i = 0; i <currentStep - 1; i++) {
                         if (allLine[i].offsetWidth == '0'){
                             allLine[i].animate([
@@ -186,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function(){
                                 {width: '100%'}
                             ],
                             {
-                                duration: 700,
+                                duration: 600,
                               })
                           
                             setTimeout(function(){
@@ -205,10 +221,23 @@ document.addEventListener("DOMContentLoaded", function(){
                           setTimeout(function(){
                             currentLine.style.width = '100%';
                         }, 600);
-                       
+
                     }                
                     return;
-                }
+                }  
+
+                slide.forEach(e => {
+                    e.classList.remove('db')   
+
+                    if((e.classList.contains(`step-${currentStep}`) == true) && (e.classList.contains('slideDisabled') == false)) {
+                        e.classList.add('slide-left')
+                        e.classList.remove('slide-right')
+                        e.classList.add('db')
+                    }else if (e.classList.contains('slideDisabled') == true){
+                        e.classList.add('db')
+                    }
+                             
+                })    
     
                 for (i=currentStep - 1; i<allLine.length; i++){
                     allLine[i].style.width = '0';
@@ -225,42 +254,62 @@ document.addEventListener("DOMContentLoaded", function(){
         slideCategory.forEach(el => {el.classList.remove('s-slider__category--active');})
     }
 
-    slideCategory.forEach(el => {
-        
+   
+    // Category Slider
 
-        el.addEventListener('click', function(){
-            deActiovation()
-            this.classList.add('s-slider__category--active');
-        })
-    });
+    function showCategory(){
+        slideCategory.forEach(el => {
+            el.addEventListener('click', function(evt){
+               evt.preventDefault()
+                let slideData = el.getAttribute('data-slide');
+                deActiovation();
+                this.classList.add('s-slider__category--active');
+                
+                categoryBox.forEach(elem =>{
+                    elem.classList.remove('db');
+                    if (elem.classList.contains(slideData) == true){
+                        elem.animate([
+                            { transform: 'translate3D(600px, 0, 0)' },
+                            { transform: 'translate3D(0, 0, 0)' }
+                          ], {
+                            duration: 700,
+                          })
+                        setTimeout (function(){
+                            elem.classList.add('db');
+                        },500)
+                        return; 
+                    }
+                })
+            })
+        });
+    }
 
-
-    clickToSelect();
-    plusValue ();
-    minusValue ();
+    clickToSelect(getObject()); 
     stepAnimation();
+    showCategory();
   
     // jQuery calendar
+    var $calendar = $("#calendar");
 
     $('.data').on('click', function(){
         clear()
-        var $calendar = $("#calendar");
+        if ($calendar.css('display') == 'block'){
+            $calendar.hide('slow');
 
-        if ($calendar.css('display') == 'none'){
-            $calendar.show('slow');
-
-            $calendar.ionCalendar({
-                lang: "en",                     
-                sundayFirst: false,            
-                years: "50",                    
-                format: "DD.MM.YYYY",           
-                onClick: function(date){        
-                    $('.calendar-date').text(date);
-                    closeCalendar()
-                }   
-            });
+            return;
         }
-    
+        $calendar.show('slow');
+        $calendar.ionCalendar({
+            lang: "en",                     
+            sundayFirst: false,            
+            years: "50",                    
+            format: "DD.MM.YYYY",           
+            onClick: function(date){        
+                $('.calendar-date').text(date);
+                $calendar.hide('slow');
+            }   
+        });
+        
     });
 
     function closeCalendar(){

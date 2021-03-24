@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&family=Epilogue:wght@400;700&" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion.calendar/2.0.0/css/ion.calendar.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
     <link rel="stylesheet" href="css/style.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion.calendar/2.0.0/js/ion.calendar.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="js/script.js"></script>
     <title>Front Test</title>
 </head>
@@ -175,9 +178,9 @@
               </div>
               <div class="form__input">
                 <div class="input-box ">
-                  <span class="minus">-</span>
+                  <span class="minus change-value">-</span>
                   <input id='inputNumber' type="text" value="100" placeholder=""/>
-                  <span class="plus">+</span>
+                  <span class="plus change-value">+</span>
                 </div>
                 
               </div>
@@ -195,8 +198,6 @@
                 </div>
                
               </div>
-             
-
               <div class="form__select select select-big" data-state="" data-id='3'>
                 <div class="select__title" data-default="Option 0" data-id='3' id='city'>City</div>
                 <div class="select__content">
@@ -220,8 +221,7 @@
                   <input id="singleSelect3" class="select__input" type="radio" name="singleSelect" />
                   <label for="singleSelect3" class="select__label">Pickup</label>
                 </div>
-              </div>
-             
+              </div>  
             </div>
             <div class="form__box right">
               <div class="form__input price">
@@ -289,41 +289,415 @@
 
         </div>
         <div class="steps__slider">
-          <div class="s-slider__item">
+          <div class="s-slider__item step-1 slideDisabled db">
             <h3>Step 1</h3>
             <h2>Sed ut perspiciatis</h2>
             <div class="s-slider__box">
               <div class="s-slider__left">
-                <div class="s-slider__category s-slider__category--active">
-                 <h3>Nemo enim</h3> 
-                </div>
-                <div class="s-slider__category">
-                  <h3>Die ipsam voluptatem</h3>
-                </div>
-                <div class="s-slider__category">
-                  <h3>Ut enim ad minima</h3>
-                </div>
-                <div class="s-slider__category">
-                  <h3>Quis autem vel</h3>
-                </div>
-                <div class="s-slider__category">
-                  <h3>Sed ut perspiciatis</h3>
-                </div>
+                <ul>
+                  <a href="#" class="s-slider__category s-slider__category--active" data-slide='first'>
+                    <li><h3>Nemo enim</h3> </li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='second'>
+                    <li> <h3>Die ipsam voluptatem</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='third'>
+                    <li> <h3>Ut enim ad minima</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='forth'>
+                    <li> <h3>Quis autem vel</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='fifth'>
+                    <li>  <h3>Sed ut perspiciatis</h3></li>
+                   </a>
+                </ul>
               </div>
               <div class="s-slider__right">
-                <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
-                  <ol class="category__list">
-                    <li class="category__item">
-                      Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
-                    </li>
-                    <li class="category__item">
-                      Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
-                    </li>
-                    <li class="category__item">
-                      Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
-                    </li>
-                  </ol>
-                  <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  <div class="category__box first db">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit1</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box second">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit2</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box third">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box forth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box fifth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="s-slider__item step-2 ">
+            <h3>Step 2</h3>
+            <h2>Sed ut perspiciatis</h2>
+            <div class="s-slider__box">
+              <div class="s-slider__left">
+                <ul>
+                  <a href="#" class="s-slider__category s-slider__category--active" data-slide='first'>
+                    <li><h3>Nemo enim</h3> </li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='second'>
+                    <li> <h3>Die ipsam voluptatem</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='third'>
+                    <li> <h3>Ut enim ad minima</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='forth'>
+                    <li> <h3>Quis autem vel</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='fifth'>
+                    <li>  <h3>Sed ut perspiciatis</h3></li>
+                   </a>
+                </ul>
+              </div>
+              <div class="s-slider__right">
+                  <div class="category__box first db">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit1</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box second">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit2</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box third">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box forth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box fifth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="s-slider__item step-3 ">
+            <h3>Step 3</h3>
+            <h2>Sed ut perspiciatis</h2>
+            <div class="s-slider__box">
+              <div class="s-slider__left">
+                <ul>
+                  <a href="#" class="s-slider__category s-slider__category--active" data-slide='first'>
+                    <li><h3>Nemo enim</h3> </li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='second'>
+                    <li> <h3>Die ipsam voluptatem</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='third'>
+                    <li> <h3>Ut enim ad minima</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='forth'>
+                    <li> <h3>Quis autem vel</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='fifth'>
+                    <li>  <h3>Sed ut perspiciatis</h3></li>
+                   </a>
+                </ul>
+              </div>
+              <div class="s-slider__right">
+                  <div class="category__box first db">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit1</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box second">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit2</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box third">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box forth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box fifth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="s-slider__item step-4 ">
+            <h3>Step 4</h3>
+            <h2>Sed ut perspiciatis</h2>
+            <div class="s-slider__box">
+              <div class="s-slider__left">
+                <ul>
+                  <a href="#" class="s-slider__category s-slider__category--active" data-slide='first'>
+                    <li><h3>Nemo enim</h3> </li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='second'>
+                    <li> <h3>Die ipsam voluptatem</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='third'>
+                    <li> <h3>Ut enim ad minima</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='forth'>
+                    <li> <h3>Quis autem vel</h3></li>
+                   </a>
+                   <a href="#" class="s-slider__category " data-slide='fifth'>
+                    <li>  <h3>Sed ut perspiciatis</h3></li>
+                   </a>
+                </ul>
+              </div>
+              <div class="s-slider__right">
+                  <div class="category__box first db">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit1</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box second">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit2</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box third">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box forth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                  <div class="category__box fifth">
+                    <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
+                    <ol class="category__list">
+                      <li class="category__item">
+                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium  
+                      </li>
+                      <li class="category__item">
+                        Doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+                      </li>
+                      <li class="category__item">
+                        Fet enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                      </li>
+                    </ol>
+                    <span class="notice">Notice: </span><span>Dolorem ipsum, quia dolor sit amet consectetu</span>
+                  </div>
+                
               </div>
             </div>
           </div>

@@ -180,13 +180,11 @@ document.addEventListener("DOMContentLoaded", function(){
                  
                     slide.forEach(e => {
                         e.classList.remove('db')
-                        e.classList.remove('slide-left')
-                        e.classList.remove('slideDisabled')
+                        e.classList.remove('slide-right')
 
                         if(e.classList.contains(`step-${currentStep}`) == true){
-                            e.classList.add('slide-right')
+                            e.classList.add('slide-left')
                             e.classList.add('db')
-                            e.classList.add('slideDisabled')
                         }
                     }) 
 
@@ -227,16 +225,17 @@ document.addEventListener("DOMContentLoaded", function(){
                 }  
 
                 slide.forEach(e => {
-                    e.classList.remove('db')   
 
-                    if((e.classList.contains(`step-${currentStep}`) == true) && (e.classList.contains('slideDisabled') == false)) {
-                        e.classList.add('slide-left')
-                        e.classList.remove('slide-right')
-                        e.classList.add('db')
-                    }else if (e.classList.contains('slideDisabled') == true){
+
+                    if((e.classList.contains(`step-${currentStep}`) == true) && (e.classList.contains('db') == false)) {
+                        clearSlide()
+
+                        e.classList.add('slide-right')
                         e.classList.add('db')
                     }
-                             
+                    else if (e.classList.contains('db') == true){
+                        e.classList.add('db')
+                    }   
                 })    
     
                 for (i=currentStep - 1; i<allLine.length; i++){
@@ -249,6 +248,9 @@ document.addEventListener("DOMContentLoaded", function(){
             })
         })
     };
+    function clearSlide(){
+        slide.forEach(e=>{e.classList.remove('db')})
+    }
 
     function deActiovation(){
         slideCategory.forEach(el => {el.classList.remove('s-slider__category--active');})

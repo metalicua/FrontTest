@@ -27,10 +27,10 @@ img {
   max-width: 100%;
 }
 
-.slide-right {
-  animation: slide-right 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.slide-left {
+  animation: slide-left 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-@keyframes slide-right {
+@keyframes slide-left {
   0% {
     transform: translateX(-100%);
   }
@@ -39,10 +39,10 @@ img {
   }
 }
 
-.slide-left {
-  animation: slide-left 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.slide-right {
+  animation: slide-right 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-@keyframes slide-left {
+@keyframes slide-right {
   0% {
     transform: translateX(100%);
   }
